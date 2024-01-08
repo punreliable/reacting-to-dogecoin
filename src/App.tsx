@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import dogeLogo from './assets/logo-dogecoin.svg'
-import './App.css'
+import './App.scss'
 import { timer } from './scripts/timer';
 
 function App() {
@@ -19,16 +19,17 @@ function App() {
   const timerLengthInMilliseconds = 25000; // Replace with your desired timer length
   
   const updateCoin = (x) => {
-    timer(x).then((result) => {
-      setCoin(result); // Update the state of coin here
-      console.log(result); // This will be true after the specified time
-    })
+    timer(x).then(
+      (result) => { setCoin( result ) // Update the state of coin here
+      console.log(result) // This will be true after the specified time
+      }
+    )
     .catch((error) => {
       console.error(error);
     })
   }
 
-  updateCoin(timerLengthInMilliseconds)
+  //updateCoin(timerLengthInMilliseconds)
 
 
   return (
@@ -48,7 +49,7 @@ function App() {
         </button>
       </div>
       <div className="card">
-        <p>{coin}</p>
+        <p>${coin}</p>
       </div>
       <p className="read-the-docs">
         Powered by <a href={awsURL}>AWS</a>, 
